@@ -10,7 +10,7 @@ class Settings(BaseSettings):
 
     @property
     def get_sync_engine(self):
-        return f'postgresql+psycopg://{self.DB_USER}:{self.DB_PASSWORD}@{self.DB_HOST}/{self.DB_NAME}?sslmode=require'
+        return f'postgresql+psycopg2://{self.DB_USER}:{self.DB_PASSWORD}@{self.DB_HOST}/{self.DB_NAME}?sslmode=require'
     
     @property
     def get_async_engine(self):
