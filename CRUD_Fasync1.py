@@ -8,7 +8,6 @@ from datetime import datetime, timezone
 from typing import Optional
 from contextlib import asynccontextmanager
 
-
 class Base(DeclarativeBase):
     pass
 
@@ -76,9 +75,6 @@ class UserUpdate(BaseModel):
             raise ValueError('Invalid Date Provided')
         return date
 
-async def drop_tables():
-    async with async_engine.connect() as conn:
-        await conn.run_sync(Base.metadata.drop_all)
 
 @app.post('/users')
 async def post_user(user:UserCreate):
